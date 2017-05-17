@@ -1,0 +1,167 @@
+\documentclass[draft]{tv2} %Използва клас файл tv2.cls
+
+\theoremstyle{plain}
+\newtheorem{thm}{Теорема}[chapter]%\label{thm:1.1}
+\newtheorem*{Theorem}{Теорема}
+\newtheorem{lemma}{Лема}[chapter]%\label{l:1.1}
+\newtheorem{prop}{Твърдение}[chapter]%\label{prop:1.1}
+\newtheorem{cor}{Следствие}[chapter]%\label{cor:1.1}
+\newtheorem*{Cor}{Следствие}
+
+\theoremstyle{definition}
+\newtheorem{dfn}{Определение}[chapter]%\label{dfn:1.1}
+\newtheorem{ex}{Пример}[chapter]%\label{ex:1.2.3}
+\newtheorem*{Ex}{Пример}%
+
+\theoremstyle{remark}
+\newtheorem{note}{Забележка}[chapter]%\label{note:1.2}
+\newtheorem*{Note}{Забележка}
+
+%Броячи, които се настройват според конкретния текст
+%\setcounter{chapter}{1}                         %Глава
+%\setcounter{equation}{1}                       %Уравнение
+%\setcounter{pr}{1}                                %Задача
+%\setcounter{note}{1}                             %Забележка
+%\setcounter{ex}{1}                                %Пример
+%\setcounter{thm}{1}                              %Теорема
+%\setcounter{lemma}{1}                          %Лема
+%\setcounter{cor}{1}                               %Следствие
+%\setcounter{dfn}{1}                               %Определение
+%\setcounter{note}{1}                             %Забележка
+%\setcounter{ex}{1}                                %Пример
+%\setcounter{pr}{1}                                %Задача
+
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\setcounter{chapter}{4}
+
+\pagestyle{main}
+\begin{document}
+
+\begin{note}\label{note:4.1}
+%теорема~1 на стр. 64
+Мерките $\mu^{+}$  и $\mu^{-}$ , свързани с коя да е мярка $\mu$, ще наричаме съответно положителна
+ и отрицателна част на $\mu$. Разлагането $\mu = \mu^{+} - \mu^{-}$ на една мярка $\mu$ на положителна
+ и отрицателна част (както и представянето на случайните величини във вида $\xi = \xi^{+} - \xi^{-}$) 
+е изключително полезно свойство, позволяващо редица твърдения за $\mu$ да се доказват чрез 
+съответните твърдения за положителните мерки $\mu^{+}$ и $\mu^{-}$. Разбира се, и 
+множеството (на Жордан-Хан) $\bbD$, свързано с мярката $\mu$ както в теорема~1, е съществена 
+характеристика на $\mu$,  заедно с $\mu^{+}$ и $\mu^{-}$ многократно ще се използува по-нататък.
+
+\end{note}
+
+\begin{cor}\label{cor:4.1}
+
+Мярката $\mu$ в $(\gO,\bbP)$ е ограничена тогава и само тогава, 
+когато $\mu(\gO) < \infty$.
+
+\end{cor}
+
+\begin{proof}
+
+Според теорема~1 за всяко $A \in \calF$ имаме 
+$-\infty \leq -\mu^{-}(\gO) \leq -\mu^{-}(A) \leq \mu(A) \leq \mu^{+}(A) \leq \mu^{+}(\gO) \leq +\infty$, 
+където $\mu^{+} = \mu(\gO) + \mu^{-}(\gO)$. Следователно, определението 
+за ограниченост $sup_{A \in \calF} |\mu(A)| < \infty$ е еквивалентно на  
+$\mu^{+}(\gO) < \infty$ и еквивалентно на $\mu(\gO) < \infty$.
+
+\end{proof}
+
+\begin{dfn}\label{dfn:4.2}
+
+Ограничената мярка $\mu$ се нарича абсолютно непрекъсната ($\mu \ll \bbP$) относно вероятността
+$\bbP$  в $(\gO,\bbP)$, а ако за всяко $\eps > 0$ съществува $\gd > 0$ такова, че при $\bbP(A) \leq \gd$ 
+имаме $|\mu(A)| \leq \eps$, $A \in \calF$.
+
+\end{dfn}
+
+\begin{dfn}\label{dfn:4.3}
+
+Положителната и ограничена мярка $\mu$ се нарича сингулярна ($\mu \perp \bbP$) относно
+вероятността  $\bbP$ в $(\gO,\bbP)$, ако съществува множество $\S \in \calF$ такова, че
+ $\mu(\ol S) = \bbP(S) = 0$.
+ 
+\end{dfn}
+
+Следващата теорема показва, че всяка мярка в едно вероятностно пространство може да се
+разложи на абсолютно непрекъсната и сингулярна компонента.
+
+\begin{thm}[Лебег]\label{thm:4:2}
+
+Нека $\OFP$ е вероятностно пространство и $\mu$ е ограничена (и положирелна) мярка в
+ $(\gO,\bbP)$. Тогава
+ 
+\begin{enumerate}[\indent\rm1)]
+
+\item\label{itm:4.1}
+Съществува интегруема (и положителна) случайна величина $\xi$ и  $\bbP$-нулево ($\bbP(N)=0$) подмножество
+ N в $\OFP$, такива че
+ 
+%брояч за `глобални' уравнения
+\setcounter{equation}{11}
+\beq\label{4.12}
+\mu(A) = \int_A \xi d\bbP + \mu(A \cap B), A \in \calF
+\eeq
+
+\item\label{itm:4.2}
+Разлагането~\eqref{4.12} на мярката $\mu$ като сума на неопределен интеграл по вероятността
+ $\bbP$ и мярка, сингулярна относно $\bbP$, е единствено.
+
+\item\label{itm:4.3}
+Ако $\mu$ е положителна мярка, то $\xi$ е най-голямата (с точност до $\bbP$-еквивалентсност)
+случайна величина, за която е изпълнено $\bbI_\xi(A) = \int_A \xi d\bbP \leq \mu(A)$, $A \in \calF$.
+\end{enumerate}
+
+\end{thm}
+
+\begin{proof}
+
+Ключов момент в доказателството е~\ref{itm:4.3}), съпоставящо на всяка ограничена и 
+положителна мярка енда неотрицателна случайна величина (клас от $\bbP$-еквивалентни с.в.).
+Ще предполагаме, че \textbf{$\mu$ е положителна ограничена мярка}. С помощта на теорема
+~1 читателят сам ще се убеди, че изискването за положителност не е съществено.
+
+%\begin{enumerate}[\indent A.]
+\begin{asparaenum}[\bfseries A.]
+\parindent=1.5cc
+
+\item\label{itm:4.A}
+Дефинираме класа
+$\scrL = \{ \text{(класове } \bbP\text{-еквивалентни) с.в. } \eta \geq 0 : \bbI_\eta(A) \leq \mu(A), A \in \calF \}$.
+Класът $\scrL$ има свойствата:
+
+%\begin{enumerate}[\indent (a)]
+\begin{asparaenum}[\bfseries (a)]
+\parindent=1.5cc
+
+\item\label{itm:4.a}
+$0 \in \scrL$
+
+\item\label{itm:4.b}
+Ако $\eta_1, \eta_2 \in \scrL$, то $sup (\eta_1, \eta_2) \in \scrL$.
+
+\item\label{itm:4.c}
+Ако $\{ \eta_n, n \geq 0\} \subseteq \scrL$ е $\bbP$-п.с. растяща редица от случайни величини, то 
+$\eta = \uparrow lim \eta_n \in \scrL$.
+
+%\end{enumerate}
+\end{asparaenum}
+
+Наистина,~\eqref{itm:4.a} е очевидно, понеже $\mu$ е положителна мярка. По-нататък, ако 
+$B = \{ \go : \eta_1 \geq \eta_2\}$, то
+
+$$\int_A sup(\eta_1, \eta_2) d\bbP = int_{A \cap B} \eta_1 d\bbP + int_{A \cap \ol{B}} \eta_2 d\bbP\\$$
+$$\leq \mu(A \cap B) + \mu(A \cap \ol{B}) = \mu(A), A \in \calF,\\$$
+
+което показва~\eqref{itm:4.b}. Най-после, свойство~\eqref{itm:4.c} следва от непрекъснатостта
+на лебеговия интеграл относно монотонна сходимост (вж. гл.~3).
+
+\item\label{itm:4.B}
+
+%\end{enumerate}
+\end{asparaenum}
+
+
+\end{proof}
+
+\end{document}
