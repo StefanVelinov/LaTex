@@ -41,8 +41,8 @@
 \begin{note}\label{note:4.1}
 %теорема~1 на стр. 64
 Мерките $\mu^{+}$  и $\mu^{-}$ , свързани с коя да е мярка $\mu$, ще наричаме съответно положителна
- и отрицателна част на $\mu$. Разлагането $\mu = \mu^{+} - \mu^{-}$ на една мярка $\mu$ на положителна
- и отрицателна част (както и представянето на случайните величини във вида $\xi = \xi^{+} - \xi^{-}$) 
+и отрицателна част на $\mu$. Разлагането $\mu = \mu^{+} - \mu^{-}$ на една мярка $\mu$ на положителна
+и отрицателна част (както и представянето на случайните величини във вида $\xi = \xi^{+} - \xi^{-}$) 
 е изключително полезно свойство, позволяващо редица твърдения за $\mu$ да се доказват чрез 
 съответните твърдения за положителните мерки $\mu^{+}$ и $\mu^{-}$. Разбира се, и 
 множеството (на Жордан-Хан) $\bbD$, свързано с мярката $\mu$ както в теорема~1, е съществена 
@@ -60,7 +60,7 @@
 \begin{proof}
 
 Според теорема~1 за всяко $A \in \calF$ имаме 
-$-\infty \leq -\mu^{-}(\gO) \leq -\mu^{-}(A) \leq \mu(A) \leq \mu^{+}(A) \leq \mu^{+}(\gO) \leq +\infty$, 
+$$-\infty \leq -\mu^{-}(\gO) \leq -\mu^{-}(A) \leq \mu(A) \leq \mu^{+}(A) \leq \mu^{+}(\gO) \leq +\infty,$$ 
 където $\mu^{+} = \mu(\gO) + \mu^{-}(\gO)$. Следователно, определението 
 за ограниченост $sup_{A \in \calF} |\mu(A)| < \infty$ е еквивалентно на  
 $\mu^{+}(\gO) < \infty$ и еквивалентно на $\mu(\gO) < \infty$.
@@ -127,7 +127,7 @@ $\bbP$  в $(\gO,\bbP)$, а ако за всяко $\eps > 0$ съществува $\gd > 0$ такова, ч
 
 \item\label{itm:4.A}
 Дефинираме класа
-$\scrL = \{ \text{(класове } \bbP\text{-еквивалентни) с.в. } \eta \geq 0 : \bbI_\eta(A) \leq \mu(A), A \in \calF \}$.
+$$\scrL = \{ \text{(класове } \bbP\text{-еквивалентни) с.в. } \eta \geq 0 : \bbI_\eta(A) \leq \mu(A), A \in \calF \}.$$
 Класът $\scrL$ има свойствата:
 
 %\begin{enumerate}[\indent (a)]
@@ -150,17 +150,96 @@ $\eta = \uparrow lim \eta_n \in \scrL$.
 Наистина,~\eqref{itm:4.a} е очевидно, понеже $\mu$ е положителна мярка. По-нататък, ако 
 $B = \{ \go : \eta_1 \geq \eta_2\}$, то
 
-$$\int_A sup(\eta_1, \eta_2) d\bbP = int_{A \cap B} \eta_1 d\bbP + int_{A \cap \ol{B}} \eta_2 d\bbP\\$$
-$$\leq \mu(A \cap B) + \mu(A \cap \ol{B}) = \mu(A), A \in \calF,\\$$
+$$\int_A sup(\eta_1, \eta_2) d\bbP = int_{A \cap B} \eta_1 d\bbP + int_{A \cap \ol{B}} \eta_2 d\bbP$$
+$$\leq \mu(A \cap B) + \mu(A \cap \ol{B}) = \mu(A), A \in \calF,$$
 
-което показва~\eqref{itm:4.b}. Най-после, свойство~\eqref{itm:4.c} следва от непрекъснатостта
+което доказва~\eqref{itm:4.b}. Най-после, свойство~\eqref{itm:4.c} следва от непрекъснатостта
 на лебеговия интеграл относно монотонна сходимост (вж. гл.~3).
 
 \item\label{itm:4.B}
+Ще покажем, че класът $\scrL$ има максимален лемент, \te, че съществува случайна величина
+$\xi \in \scrL$ със свойството
 
-%\end{enumerate}
+\beq\label{4.13}
+\xi \geq \eta
+\bbP-\text{п.с. }, \eta \in \scrL.
+\eeq
+
+\begin{asparaenum}[\bfseries\theenumi. a)]
+\parindent=1.5cc
+
+\item\label{itm:4.B.a}
+На всяко \textbf{изброимо} семейство $\{ \eta_j, j \in J\} \subseteq \scrL$ да съпоставим
+случайна величина $\eta_j = sup_{j \in J} \eta_j \in \scrL$ (вж. свойство~\eqref{itm:4.c} по-горе). 
+Нека $M = sup_{J-\text{изброимо}} \bbE \eta_J \leq \mu(\gO) < \infty$. \textbf{Точната горна граница
+M се достига за някой елемент $\eta_{J_0} \in \scrL$}. Действително, за всяко $n > 1$ 
+съществува изброимо семейство  $\{ \eta_j, j \in J_n \}$, такова че $\bbE \eta_{J_n} \geq M - \frac1n$.
+Тогава семейството $\{ \eta_j, j \in J_0\}, J_0 = \cup_{n \geq 1} J_n$ е също изброимо и за него имаме
+$\bbE \eta_{J_0} \geq \bbE \eta_{J_n} \geq M - \frac1n, n \geq 1$. Следователно, $\bbE \eta_{J_0} = M$.
+
+\item\label{itm:4.B.b}
+За случайната величина $\xi = \eta_{J_0}$ ще докажем свойството~\eqref{4.13}. Да допуснем,
+че съществува с.в. $\eta \in \scrL$, такава че събитието $A = A(\eta) = \{ \go: \eta > \xi \}$ има
+вероятност $\bbP(A) > 0$. Очевидно събитията $A_n = \{ \go: \eta \geq \xi + \frac1n \}, n \geq 1$,
+удовлетворяват $A_n \uparrow A$. Следователно, $\bbP(A_n) \uparrow \bbP(A) > 0$. Тогава случайната
+величина $\eta^{*} = sup (\eta, \xi) \in \scrL$ има свойството
+
+$$\bbE \eta^{*} = \int_{A_{n_0}} \eta d\bbP + \int_{A \setminus A_{n_0}} \eta d\bbP + \int_{\ol{A}} \xi d\bbP$$
+$$\geq \int_{A_{n_0}} (\xi + \frac1{n_0}) d\bbP + \int_{A \setminus {A_{n_0}}} \xi d\bbP + \int_{\ol{A}} \xi d\bbP$$
+$$= \frac1{n_0} \bbP(A_{n_0}) + \bbE \xi > M,$$
+
+което противоречи на избора на М. Следователно $\bbP(A(\eta)) = 0$ за всяко $\eta \in \scrL$
+и това доказва~\eqref{4.13}.
+
 \end{asparaenum}
 
+\item\label{itm:4.C}
+Полагаме
+
+\beq\label{4.14}
+\mu^\prime(A) = \mu(A) - \bbI_{\xi}(A), A \in \calF.
+\eeq
+
+Мярката $\mu^\prime$ е положителна, защото $\xi \in \scrL$. Ще покажем, че  $\mu^\prime$
+ е съсредоточена върху някое $\bbP$-нулево множество.
+
+\begin{asparaenum}[\bfseries\theenumi. a)]
+\parindent=1.5cc
+
+\item\label{4.C.a}
+Нека $D_n, n \geq 1$, е множество (на Жордан-Хан), съответствуващо на мярката $(\mu^\prime - \frac1n \bbP)$
+в смисъла на теорема~1. По определение
+$$\mu^\prime (A \cap D_n) \geq \frac1n \bbP (A \cap D_n); 
+\mu^\prime (A \cap \ol{D}_n) \leq \frac1n \bbP(A \cap \ol{D}_n)$$
+
+\te случайната величина $\xi + \frac1n I(D_n) \in \scrL$. Понеже $\xi$ има свойството~\eqref{4.13}, то
+$\bbP(D_n) = 0$. Събитието $N = \cup_{n \geq 1} D_n$ е също \textbf{$\bbP$-нулево: $\bbP(N) = 0$}. 
+
+\item\label{4.C.b}
+За всяко $n \geq 1$ имаме неравенствате
+
+$$\mu^\prime(\ol{N}) \leq \mu^\prime(\ol{D}_n)  \leq \frac1n \bbP(\ol{D}_n) \leq \frac1n$$
+
+Те означават, че $\mu^\prime(\ol{N}) = 0$, \te \textbf{$\mu^\prime$ е съсредоточена в множеството N}.
+Слетователно тъй като ($\bbI(N) = 0$),
+
+$$ \mu^\prime(A) = \mu^\prime(A \cap N) = \mu(A \cap N), A \in \calF, $$
+
+което заедно с~\eqref{4.14} доказва~\eqref{4.12}.
+
+\end{asparaenum}
+
+\item\label{4.D}
+Остава да докажем,единствеността на лебеговото представяне~\eqref{4.12}. Нека
+
+$$\mu(A) = \bbI_{\eta}(A) + \nu(A), A \in \calF,$$
+
+където $\nu$ е мярка в $(\gO, \calF)$, сингулярна относно $\bbP$, а $\eta$ е интегруема с.в.
+От това веднага следва, че $\bbI_{\eta} \leq \mu(A), A \in \calF$, \te $\eta \in \scrL$,
+откъдето според~\eqref{4.13} $\eta \leq \xi$ $\bbP$-п.с.\par
+Определението~\ref{dfn:4.3} ни казва, че съществува множество $S \in \calF$.
+
+\end{asparaenum}
 
 \end{proof}
 
